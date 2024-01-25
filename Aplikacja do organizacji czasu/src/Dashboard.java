@@ -18,6 +18,8 @@ public class Dashboard extends JFrame {
 
     public Dashboard(JFrame parent) {
         super("Choose what you want to do");
+        if (Login.usernameLOG == null) throw new NullPointerException("Zaloguj się na konto aby otworzyć to okno");
+
         this.setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(400,450);
@@ -28,9 +30,9 @@ public class Dashboard extends JFrame {
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 Login login = new Login(null);
                 login.setVisible(true);
-                dispose();
             }
         });
         OKButton.addActionListener(new ActionListener() {

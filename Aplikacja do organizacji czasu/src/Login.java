@@ -12,6 +12,7 @@ public class Login extends JDialog {
     private JButton goToRegisterButton;
     private JButton cancelButton;
     public static String usernameLOG; //zmienna potrzebna do wyswietlenia w dashboard
+    public static int user_id;
 
     public static void main(String[] args) {
         Login login = new Login(null);
@@ -27,6 +28,7 @@ public class Login extends JDialog {
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      //  this.setVisible(true);
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,32 +75,27 @@ public class Login extends JDialog {
         final String USERNAME = "root";
         final String PASSWORD ="";
 
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL,USERNAME, PASSWORD);
-            Statement stmt = conn.createStatement();
+        try(Connection conn = DriverManager.getConnection(DB_URL,USERNAME, PASSWORD)) {
             String sql = "SELECT * FROM users WHERE email=? AND password=?";
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1,email);
-            preparedStatement.setString(2,password);
+            try(PreparedStatement preparedStatement = conn.prepareStatement(sql);) {
+                preparedStatement.setString(1, email);
+                preparedStatement.setString(2, password);
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()) {
-                user = new User();
-                user.username = resultSet.getString("username");
-                user.email = resultSet.getString("email");
-                user.password = resultSet.getString("password");
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    user = new User();
+                    user.username = resultSet.getString("username");
+                    user.email = resultSet.getString("email");
+                    user.password = resultSet.getString("password");
 
-                usernameLOG = user.username;
+                    user_id = resultSet.getInt("id"); //pobieram id użytkownika
+                    usernameLOG = user.username;
+                }
             }
-
-            stmt.close();
-            conn.close();
-
         }
-        catch (Exception e) {
+        catch (SQLException e) {
             e.printStackTrace();
         }
-
         return user;
     }
 }

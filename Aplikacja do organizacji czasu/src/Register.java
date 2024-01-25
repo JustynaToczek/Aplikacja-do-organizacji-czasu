@@ -33,7 +33,6 @@ public class Register extends JDialog {
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-       // setVisible(true);
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,8 +54,7 @@ public class Register extends JDialog {
                 registerUser();
             }
         });
-    } //koniec konstruktora
-
+    }
     private void registerUser() {
         String username = usernameField.getText();
         String email = emailField.getText();
@@ -89,8 +87,9 @@ public class Register extends JDialog {
         }
 
         user = addUserToDatabase(username, email, password);
-        if(user != null)
+        if(user != null) {
             dispose();
+        }
         else {
             JOptionPane.showMessageDialog(this,
                     "Failed to register new user",
@@ -104,40 +103,30 @@ public class Register extends JDialog {
     private User addUserToDatabase(String username, String email, String password) {
         User user = null;
 
-
-        //sprawdzenie polaczenia do bazy danych
         final String DB_URL = "jdbc:mysql://localhost/TimeApplication?serverTimezone=UTC";
         final String USERNAME = "root";
         final String PASSWORD ="";
 
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            Statement statement = conn.createStatement();
-
+        try(Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
             String sql = "INSERT INTO users (username, email, password) VALUES (?,?,?)";
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, password);
+            try(PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
 
-            //insert row into the table
-            int addedRows = preparedStatement.executeUpdate();
-            System.out.println("ADDESROWS = "+addedRows);
-            if (addedRows > 0) {
-                user = new User();
-                user.username = username;
-                user.email = email;
-                user.password = password;
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, email);
+                preparedStatement.setString(3, password);
+
+                int addedRows = preparedStatement.executeUpdate();
+                if (addedRows > 0) {
+                    user = new User();
+                    user.username = username;
+                    user.email = email;
+                    user.password = password;
+                }
             }
-            //close connection
-            statement.close();
-            conn.close();
-
         }
         catch (Exception e) {
                 e.printStackTrace();
         }
-
         return user;
     }
 }
