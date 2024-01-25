@@ -14,11 +14,11 @@ public class Calendar extends JFrame {
     private Date selectedDate;
     public static String selectedFormattedDate;
     public static int id_date;
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Calendar().setVisible(true);
-        });
-    }
+//    public static void main(String[] args) {
+//        SwingUtilities.invokeLater(() -> {
+//            new Calendar().setVisible(true);
+//        });
+//    }
     public Calendar() {
         initComponents();
     }
@@ -26,6 +26,7 @@ public class Calendar extends JFrame {
         if (Login.usernameLOG == null) throw new NullPointerException("Zaloguj się na konto aby otworzyć to okno");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Calendar");
+
 
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -78,6 +79,7 @@ public class Calendar extends JFrame {
 
         pack();
         setLocationRelativeTo(null);
+        this.setVisible(true);
     }
     public void addInfoToDatabase(int user_id, String date) {
         final String DB_URL = "jdbc:mysql://localhost/TimeApplication?serverTimezone=UTC";

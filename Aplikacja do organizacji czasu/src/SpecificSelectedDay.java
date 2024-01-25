@@ -25,12 +25,6 @@ public class SpecificSelectedDay extends JFrame {
     private final String USERNAME = "root";
     private final String PASSWORD ="";
 
-
-    public static void main(String[] args) {
-        SpecificSelectedDay specificSelectedDay = new SpecificSelectedDay();
-      //  specificSelectedDay.setVisible(true);
-    }
-
     public SpecificSelectedDay() {
         if (Login.usernameLOG == null || Calendar.selectedFormattedDate == null)
             throw new NullPointerException("Zaloguj się na konto i wybierz datę w kalendarzu aby otworzyć to okno");
@@ -39,7 +33,6 @@ public class SpecificSelectedDay extends JFrame {
         setTitle("your plans for day "+Calendar.selectedFormattedDate);
         Dimension min = new Dimension(500,400);
         setMinimumSize(min);
-        this.setVisible(true);
         dateJLabel.setText("Enter plans or events for "+Calendar.selectedFormattedDate);
         setLocationRelativeTo(null);
         progresPanel.setVisible(false);
@@ -74,6 +67,12 @@ public class SpecificSelectedDay extends JFrame {
                 progressBar.setValue(progressBarValue);
                 progressBar.setString(progressBarValue + "%");
                 checkBox1.setSelected(isCheckboxSelected);
+
+                if (list1.getSelectedValue() == null)
+                    saveButton.setEnabled(false);
+                else
+                    saveButton.setEnabled(true);
+
             }
         });
 
@@ -138,6 +137,7 @@ public class SpecificSelectedDay extends JFrame {
                 checkBox1.setEnabled(progressBar.getValue() < 100);
             }
         });
+        this.setVisible(true);
     }
 
     private void getPlansFromDatabase(int id_date, DefaultListModel listModel) {
@@ -203,15 +203,14 @@ public class SpecificSelectedDay extends JFrame {
     public void addPlansToDatabase(int id_date, String to_do) {
         try(Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);) {
             String sql = "INSERT INTO progress (id_date, to_do) VALUES (?,?)";
-            try(Statement stmt = conn.createStatement()) {
-                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            try(PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                 preparedStatement.setInt(1, id_date);
                 preparedStatement.setString(2, to_do);
 
                 preparedStatement.executeUpdate();
             }
         }
-        catch(Exception e) {
+        catch(SQLException e) {
             e.printStackTrace();
         }
     }

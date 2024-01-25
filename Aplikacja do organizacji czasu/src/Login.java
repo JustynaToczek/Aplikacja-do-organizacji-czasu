@@ -14,11 +14,6 @@ public class Login extends JDialog {
     public static String usernameLOG; //zmienna potrzebna do wyswietlenia w dashboard
     public static int user_id;
 
-    public static void main(String[] args) {
-        Login login = new Login(null);
-        login.setVisible(true);
-    }
-
     public Login(JFrame parent) {
         super(parent);
         setTitle("Log in to your account");
@@ -28,7 +23,7 @@ public class Login extends JDialog {
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      //  this.setVisible(true);
+
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,7 +35,6 @@ public class Login extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 Register register = new Register(null);
-                register.setVisible(true);
             }
         });
         loginButton.addActionListener(new ActionListener() {
@@ -66,6 +60,7 @@ public class Login extends JDialog {
                 }
             }
         });
+        this.setVisible(true);
     }
     public User user;
     private User getAutenticateUser(String email,String password) {

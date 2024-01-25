@@ -18,11 +18,6 @@ public class Register extends JDialog {
     private JPasswordField passwordField2;
     private JButton cancelButton;
 
-    public static void main(String[] args) {
-//        Register register = new Register(null);
-//        register.setVisible(true);
-    }
-
     public Register(JFrame parent) {
         super(parent);
         setTitle("Register account");
@@ -44,7 +39,6 @@ public class Register extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 Login login = new Login(null);
-                login.setVisible(true);
             }
         });
 
@@ -54,6 +48,8 @@ public class Register extends JDialog {
                 registerUser();
             }
         });
+
+        this.setVisible(true);
     }
     private void registerUser() {
         String username = usernameField.getText();
@@ -75,6 +71,13 @@ public class Register extends JDialog {
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if (password.length() < 8) {
+            JOptionPane.showMessageDialog(this,
+                    "Your password should be at least 8 characters long",
+                    "Try again",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         //walidacja adresu email
         EmailValidator emailValidator = new EmailValidator();
@@ -89,6 +92,9 @@ public class Register extends JDialog {
         user = addUserToDatabase(username, email, password);
         if(user != null) {
             dispose();
+            JOptionPane.showMessageDialog(this,
+                    "User have been registered! Now log into your account!");
+            Login login = new Login(null);
         }
         else {
             JOptionPane.showMessageDialog(this,

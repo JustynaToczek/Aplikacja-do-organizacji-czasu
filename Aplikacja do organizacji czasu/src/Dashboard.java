@@ -7,14 +7,9 @@ public class Dashboard extends JFrame {
     private JButton logOutButton;
     private JLabel usernameLabel;
     private JRadioButton calendarRadioButton;
-    private JRadioButton yourGoalsRadioButton;
-    private JRadioButton toDoListRadioButton;
     private JRadioButton notesRadioButton;
     private JButton OKButton;
 
-    public static void main(String[] args) {
-        Dashboard dashboard = new Dashboard(null);
-    }
 
     public Dashboard(JFrame parent) {
         super("Choose what you want to do");
@@ -22,9 +17,9 @@ public class Dashboard extends JFrame {
 
         this.setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setSize(400,450);
+        this.setSize(400,400);
         setLocationRelativeTo(parent);
-        this.setVisible(true);
+
 
         usernameLabel.setText("Hi "+ Login.usernameLOG+"!");
         logOutButton.addActionListener(new ActionListener() {
@@ -32,7 +27,6 @@ public class Dashboard extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 Login login = new Login(null);
-                login.setVisible(true);
             }
         });
         OKButton.addActionListener(new ActionListener() {
@@ -40,11 +34,14 @@ public class Dashboard extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (calendarRadioButton.isSelected()) {
                     Calendar calendar = new Calendar();
-                    calendar.setVisible(true);
+                }
+                else if (notesRadioButton.isSelected()) {
+                    Notes notes = new Notes(null);
                 }
                 dispose();
             }
         });
+        this.setVisible(true);
     }
 
 }
