@@ -17,7 +17,7 @@ public class Notes extends JFrame {
         if (Login.usernameLOG == null) throw new NullPointerException("Zaloguj się na konto aby otworzyć to okno");
         setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setSize(450,460);
+        this.setSize(450,500);
 
         getNotesFromDatabase(Login.user_id);
 
