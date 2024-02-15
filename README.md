@@ -2,6 +2,11 @@
 
 ## Projekt semetralny z przedmiotu Programowanie Obiektowe
 
+### Prowadzący:	mgr inż. Ewa Żesławska
+
+### Autor: Justyna Toczek
+
+
 ### Informatyka, 3 semestr, Rzeszów 2024
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/98861275-57df-4b53-a553-a0576f68ad8e" width="700">
 
