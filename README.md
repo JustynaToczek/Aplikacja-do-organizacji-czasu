@@ -51,13 +51,13 @@ CREATE TABLE IF NOT EXISTS notes (user_id INT, FOREIGN KEY (user_id) REFERENCES 
 •	Środowisko programistyczne: IntelliJ IDEA 2023.2.1 (Ultimate Edition)</br>
 •	Urządzenie z system operacyjnym Windows 11</br>
 •	Aplikacja była projektowana na urządzeniu HP laptop 15-dw1xxx</br>
-![image](https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/d970e12e-c260-4aaa-ad58-6ef8503115c7)
+![image](https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/d970e12e-c260-4aaa-ad58-6ef8503115c7) </br>
 Rysunek 1. Diagram klas aplikacji
 
 
 Baza danych składa się z czterech tabel. W tabeli users przechowywane są dane użytkowników (username, email oraz hasło). Tabela posiada klucz główny id, który identyfikuje każdego zarejestrowanego użytkownika. Tabela date przechowuje informacje o konkretnych datach wybranych przez danego użytkownika. Id_date jest kluczem głównym tej tabeli i przechowuje informacje o tym, który użytkownik wybrał którą datę. User_id jest w tej tabeli kluczem obcym, który odwołuje się do klucza głównego id w tabeli users. Tabela posiada także kolumnę date. Z kolei tabela progress posiada klucz obcy id_date, który odwołuje się do klucza głównego id_date w tabeli date. Tabela progress posiada także kolmnny: to_do, percentage, ischeckboxselected. Tabela notes przechowuje klucz obcy user_id odwołujący się do klucza głównego id w tabeli users. Posiada także kolumnę notes. Opisywane tabele i relacje między nimi zostały zwizualizowane na schemacie ERD na rysunku 2.
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/7efa39b9-1d98-40a9-9234-63a636571653" width="700"> </br>
-Rysunek 2.Diagram ERD bazy danych
+Rysunek 2. Diagram ERD bazy danych
 
 ### 4.	Harmonogram realizacji projektu</br>
 Projekt zrealizowano w ciągu 11 dni. Kroki realizacji projektu to kolejno: analiza wymagań, zaprojektowanie interfejsu użytkownika, stworzenie bazy danych i logiki relacji, połączenie bazy danych z programem, stworzenie logiki działania programu, testowanie aplikacji, stworzenie dokumentacji. Stworzono diagram Gantta przestawiający harmonogram realizacji projektu, przedstawiony na rysunku 3. </br>
@@ -65,33 +65,33 @@ Projekt zrealizowano w ciągu 11 dni. Kroki realizacji projektu to kolejno: anal
 Rysunek 3. Diagram Gantta
 
 ### 5.	Prezentacja warstwy użytkowej projektu
-Na rysunku 5 przedstawiono okno logowania do aplikacji, które ukazuje się po uruchomieniu programu. </br>
+Na rysunku 4 przedstawiono okno logowania do aplikacji, które ukazuje się po uruchomieniu programu. </br>
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/6461bc45-ae3c-4f68-8ea8-3200b09bbed6" width = "400"> </br>
-Rysunek 5. Okno logowania aplikacji
+Rysunek 4. Okno logowania aplikacji
 
-Dla użytkowników pierwszy raz korzystających z aplikacji, stworzono okno rejestracji (rysunek 6), do którego można przejść za za pomocą przycisku „Go to register”. </br>
+Dla użytkowników pierwszy raz korzystających z aplikacji, stworzono okno rejestracji (rysunek 5), do którego można przejść za za pomocą przycisku „Go to register”. </br>
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/3398e560-0598-431b-8251-393e3ace9b5e" width="400"> </br>
-Rysunek 6. Okno rejestracji </br>
+Rysunek 5. Okno rejestracji </br>
 
-Po udanej rejestracji i/lub logowaniu, ukazuje się panel wyboru (rysunek 7). Zalogowany użytkownik może wybrać, czy chce przejść do notatek, czy do kalendarza. </br>
+Po udanej rejestracji i/lub logowaniu, ukazuje się panel wyboru (rysunek 6). Zalogowany użytkownik może wybrać, czy chce przejść do notatek, czy do kalendarza. </br>
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/850355a7-afc7-47fc-9a64-46deff1fbc11" width="400"> </br>
-Rysunek 7. Panel wyboru
+Rysunek 6. Panel wyboru
 
-Wybierając opcję przejścia do notatek, następuje wyświetlenie okienka, w którym użytkownik może dodawać, modyfikować i usuwać swoje notatki (rysunek 8). </br>
+Wybierając opcję przejścia do notatek, następuje wyświetlenie okienka, w którym użytkownik może dodawać, modyfikować i usuwać swoje notatki (rysunek 7). </br>
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/8dc39317-dd95-498c-b53e-79d385a9b6b8" width="400"> </br>
-Rysunek 8. Okno notatek
+Rysunek 7. Okno notatek
 
-Wybierając opcję przejścia do kalendarza, wyświetla się kalendarz użytkownika, przedstawiony na rysunku 9. W tym oknie użytkownik może wybrać datę, do której chciałby przypisać swoje plany, zmodyfikować je, lub sprawdzić te wcześniej wprowadzone. </br>
+Wybierając opcję przejścia do kalendarza, wyświetla się kalendarz użytkownika, przedstawiony na rysunku 8. W tym oknie użytkownik może wybrać datę, do której chciałby przypisać swoje plany, zmodyfikować je, lub sprawdzić te wcześniej wprowadzone. </br>
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/52648a65-705e-4bce-b126-cacf397f490d" width="300"> </br>
-Rysunek 9. Okno kalendarza
+Rysunek 8. Okno kalendarza
 
-Po kliknięciu w przycisk „OK” i wybraniu daty, która interesuje użytkownika, program przełącza się do okna planowania, przedstawionego na rysunku 10. W tym oknie możliwe jest wprowadzanie swoich planów na wcześniej wybrany dzień, poprzez pojedyncze wprowadzenie ich w pole tekstowe i kliknięcie w przycisk „Enter to list”. Wówczas wprowadzone plany zapisywane są na liście. Istnieje także możliwość ich usuwania za pomocą przycisku „Remove from list”. </br>
+Po kliknięciu w przycisk „OK” i wybraniu daty, która interesuje użytkownika, program przełącza się do okna planowania, przedstawionego na rysunku 9. W tym oknie możliwe jest wprowadzanie swoich planów na wcześniej wybrany dzień, poprzez pojedyncze wprowadzenie ich w pole tekstowe i kliknięcie w przycisk „Enter to list”. Wówczas wprowadzone plany zapisywane są na liście. Istnieje także możliwość ich usuwania za pomocą przycisku „Remove from list”. </br>
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/33c4fb57-2194-4959-9fba-2376a6d8248d" width="400"> </br>
-Rysunek 10. Okno planowania
+Rysunek 9. Okno planowania
 
-Na rysunku 11 przedstawione są udogodnienia okna planowania. Po wprowadzeniu planowanych wydarzeń oraz po kliknięciu na wybrany z element z listy, w dolnej części okienka pokazuje się panel, w którym możliwe jest wprowadzenie progresu realizacji danego celu. Stopień realizacji danego zadania jest reprezentowany poprzez wartości 0% - 100% występujące na suwaku. W celu zwizualizowania zakończonego zadania, oprócz przesunięcia suwaka na wartość 100%, można także zaznaczyć pole wyboru znajdujące się w lewym dolnym rogu okna, które sprawi, że suwak będzie wskazywał wartość 100%. W celu uniknięcia utraty danych, każdy progres realizacji danego zadania należy zapisać za pomocą przycisku „Save progress”. </br>
+Na rysunku 10 przedstawione są udogodnienia okna planowania. Po wprowadzeniu planowanych wydarzeń oraz po kliknięciu na wybrany z element z listy, w dolnej części okienka pokazuje się panel, w którym możliwe jest wprowadzenie progresu realizacji danego celu. Stopień realizacji danego zadania jest reprezentowany poprzez wartości 0% - 100% występujące na suwaku. W celu zwizualizowania zakończonego zadania, oprócz przesunięcia suwaka na wartość 100%, można także zaznaczyć pole wyboru znajdujące się w lewym dolnym rogu okna, które sprawi, że suwak będzie wskazywał wartość 100%. W celu uniknięcia utraty danych, każdy progres realizacji danego zadania należy zapisać za pomocą przycisku „Save progress”. </br>
 <img src="https://github.com/JustynaToczek/Aplikacja-do-organizacji-czasu/assets/113525212/05a06888-a679-4df0-96ce-09102338fd30" width="400"> </br>
-Rysunek 11. Udogodnienia okna planowania
+Rysunek 10. Udogodnienia okna planowania
 
 ### 6.	Podsumowanie
 Realizacja projektu przebiegła pomyślnie. Stworzony program działa zgodnie z założeniami. Aplikację można rozbudować o dodatkowe funkcje, takie jak np.: </br>
