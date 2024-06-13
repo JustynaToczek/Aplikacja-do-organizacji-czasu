@@ -7,8 +7,6 @@
 
 ### Spis treści
 1.	Opis założeń projektu</br>
-1.1.	Wstęp</br>
-1.2.	Cele i założenia projektu
 2.	Specyfikacja wymagań</br>
 2.1.	Wymagania funkcjonalne</br>
 2.2.	Wymagania niefunkcjonalne
@@ -21,9 +19,6 @@
 
 
 ### 1.	Opis założeń projektu</br>
-#### 1.1.	Wstęp</br>
-Każdy człowiek, na pewnym etapie swojego życia spotyka się z wieloma obowiązkami. Poza obowiązkami, każdy ma swoje prywatne życia, hobby, cele i marzenia do których dąży krok po kroku. Natłok wszystkich aktywności, obowiązków, prac, czy planów do zrealizowania potrafi przytłaczać. Brak organizacji swoich planów przyczynia się do ciągłego pośpiechu, braku czasu na odpoczynek, a nawet wypalenia zawodowego. Z tego powodu organizacja i planowanie jest kluczowym elementem produktywnego i zbilansowanego dnia. Dzięki planowaniu możliwe jest znalezienie czasu na obowiązki oraz odpoczynek, o którym tak często się zapomina, lub właśnie nie znajduje się na niego czasu. Dzięki planowaniu znajdowanie czasu na odpoczynek i hobby jest dużo łatwiejsze. Ponadto planowanie swojego dnia i konsekwentne odnotowywanie zrealizowanych prac może przyczynić się do samozadowolenia z siebie, co może motywować do dalszej realizacji celów. Z taką właśnie myślą została stworzona aplikacja do organizacji czasu.</br>
-#### 1.2. Cele i założenia projektu</br>
 Celem projektu jest stworzenie programu pomocnego w organizacji codziennych zdań.
 Rozwiązywanym problemem jest trudność w organizowaniu swoich obowiązków oraz trudność  znajdowania czasu na odpoczynek. Podstawowym źródłem problemu jest natłok codziennych obowiązków. Problem dotyka większości osób, co czyni go ważnym zagadnieniem. Niezbędnym krokiem do rozwiązania tego problemu jest jego uświadomienie i zrozumienie. Nie każdy jest świadomy, że tak prosta rzecz, jak dobra organizacja czasu może przynieść mnóstwo korzyści i rozwiązać niejeden problem związany z brakiem czasu. Jednym z rozwiązań problemu jest dostarczenie udogodnienia w postaci aplikacji, która będzie mogła wizualizować ilość obowiązków i organizować wprowadzane zadania. Założenia działania aplikacji zamieszczono poniżej.
 Funkcje aplikacji są dostępne dla każdego zarejestrowanego użytkownika. Po zalogowaniu, użytkownik ma możliwość wyboru przejścia do kalendarza lub do notatek. Wybierając pierwszą opcję, ukazuje się okno kalendarza, w którym możliwy jest wybór dowolnej daty. Po wybraniu daty, ukazuje się okno,  którym użytkownik może dodawać swoje cele do zrealizowania na dany dzień. Możliwe jest także zarządzanie tymi celami poprzez przesuwanie suwaka przyjmującego wartości od 0% do 100%, które reprezentują stopień realizacji danego zadania. Możliwe jest również zaznaczenie pola wyboru przy danym zadaniu, co jest równoznaczne z wartością 100% na suwaku, czyli w pełni zrealizowaniu wybranego zadania. Wprowadzane plany można także usuwać. Takie funkcje programu są dostępne dla każdej wybranej daty. Użytkownik ma również możliwość do przejścia do okna notatek, w którym możliwe jest wprowadzanie i modyfikowanie swoich notatek.
